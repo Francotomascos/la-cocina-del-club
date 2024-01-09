@@ -152,6 +152,7 @@ main{
    bottom: 0;
 }
 .footer-links ul {
+    padding: 0;
     list-style: none;
 }
 .footer-links ul li{
@@ -222,65 +223,77 @@ main{
     color: #FFF;
     display: block;
 }
+  
+.contact-form {
+display: flex;
+flex-direction: column;
+}
 
-estilos contacto
-.container {
-    width: 400px;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 8px;
-  }
-  
-  input,
-  textarea {
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
+label {
+margin-bottom: 8px;
+}
 
-/* .cartita{
-    width: 30%;
-    padding: 2%;
-    background-color: grey;
-    border-radius: 20px;
- display: inline-block;
-    margin-inline: 1,5%;
-    overflow: auto;
+input,
+textarea {
+padding: 10px;
+margin-bottom: 16px;
+border: 1px solid #ccc;
+border-radius: 4px;
 }
-.cartita__imagen{
-    width: 100%;
+
+button {
+background-color: #007bff;
+color: #fff;
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
 }
-.cartita__titulo{
-    font-size: 14px;
+
+button:hover {
+background-color: #0056b3;
 }
-.cartita__parrafo{
-font-size: 14px;
+.c-item{
+    height: 480px;
+    align-self: center;
 }
-.cartita__imagen,
-.cartita__titulo,
-.cartita__parrafo {
-    margin-bottom: 10px;
-} */
+.slider-text{
+    color:black;
+}
+.text-delivery{
+    font-size: 20px;
+    color: #292929;
+}
+.gap-24 {
+    gap: 24px;
+}
+.py-120 {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+.delivery-info h1 {
+    color: #0056b3;
+}
+.delivery-info-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+.delivery-info-card h2 a {
+    text-decoration: none;
+    color: #0056b3;
+}
+@media screen and (max-width: 530px) {
+    .footer-content-item {
+        width: 100%;
+    }
+    .footer-info, .footer-social {
+        padding-right: 0;
+    }
+    .footer-links, .footer-subscribe {
+        padding-left: 0;
+    }
+    .footer-subscribe {
+        margin-top: 16px;
+    }
+}
