@@ -9,7 +9,6 @@ body {
     color: #292929;
 }
 .container{
-    max-width: 980px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -92,6 +91,62 @@ main{
 .hero-details button:hover{
     background-color: #292929;
 }
+/* CAROUSEL */
+.carousel-info {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.carousel-bg-blur {
+    padding: 8px;
+    backdrop-filter: blur(4px);
+    background-color: #5050500f;
+    border-radius: 8px;
+}
+/* ABOUT US */
+.about-us-banner {
+    max-width: 100%;
+}
+.about-title-sm {
+    font-size: 20px;
+    color: #0056b3;
+    font-weight: 500;
+    display: inline-block;
+}
+.about-title {
+    font-size: 36px;
+    color: #292929;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.about-details {
+    padding-left: 40px;
+}
+.about-details .btn {
+    background-color: #0056b3;
+    color: #FFF;
+}
+.about-details .btn:hover {
+    background-color: #292929;
+    color: #FFF;
+}
+.about-service-icon{
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff9f4;
+    flex: 0 0 55px;
+    max-width: 55px;
+}
+/* FOOTER */
 .footer-content{
     display: flex;
     flex-wrap: wrap;
@@ -167,12 +222,9 @@ main{
     gap: 8px;
     margin-top: 24px;
 }
-.footer-social-content a {
-    height: 80px;
-}
 .footer-social-content a img {
     width: 100%;
-    height: 80px;
+    height: auto;
     object-fit: cover;
 }
 .footer-subscribe p {
@@ -254,8 +306,8 @@ button:hover {
 background-color: #0056b3;
 }
 .c-item{
-    height: 480px;
     align-self: center;
+    padding: 20% 0;
 }
 .slider-text{
     color:black;
@@ -263,6 +315,9 @@ background-color: #0056b3;
 .text-delivery{
     font-size: 20px;
     color: #292929;
+}
+.gap-20 {
+    gap: 20px;
 }
 .gap-24 {
     gap: 24px;
@@ -283,6 +338,28 @@ background-color: #0056b3;
     text-decoration: none;
     color: #0056b3;
 }
+.card-img-container {
+    height: 0;
+    padding: 28.125% 0;
+}
+.card-container {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.container-cards{
+    margin-top: 10px;
+}
+.card-img-top{
+    object-fit: cover ;
+}
+@media screen and (max-width: 767px) {
+    .about-details {
+        padding: 0;
+        margin-top: 24px;
+    }
+}
+    
+
 @media screen and (max-width: 530px) {
     .footer-content-item {
         width: 100%;
