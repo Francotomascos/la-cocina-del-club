@@ -1,0 +1,22 @@
+.carousel-info {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.carousel-bg-blur {
+    padding: 8px;
+    backdrop-filter: blur(4px);
+    background-color: #5050500f;
+    border-radius: 8px;
+}
+
+.slider-text{
+    color:black;
+}

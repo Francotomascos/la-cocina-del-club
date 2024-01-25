@@ -22,6 +22,70 @@ main {
   padding: 40px 0;
 }
 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+.c-item {
+  align-self: center;
+  padding: 20% 0;
+}
+
+.gap-20 {
+  gap: 20px;
+}
+
+.gap-24 {
+  gap: 24px;
+}
+
+.py-120 {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.container-cards {
+  margin-top: 10px;
+}
+.container-cards .card-container {
+  display: flex;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.container-cards .card-container-item {
+  height: 0;
+  padding: 28.125% 0;
+}
+.container-cards .card-container-item .card-img-top {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .hero {
   display: flex;
   align-items: center;
@@ -55,30 +119,27 @@ main {
   width: 100%;
   height: auto;
 }
-
 .hero-details, .hero-image {
   width: 50%;
 }
 
-/* CAROUSEL */
-.carousel-info {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.delivery-info h1 {
+  color: #0056b3;
+}
+.delivery-info-card img {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.delivery-info-card h2 a {
+  text-decoration: none;
+  color: #0056b3;
 }
 
-.carousel-bg-blur {
-  padding: 8px;
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
-  background-color: rgba(80, 80, 80, 0.0588235294);
-  border-radius: 8px;
+.text-delivery {
+  font-size: 20px;
+  color: #292929;
 }
 
 .about-us-banner {
@@ -119,6 +180,12 @@ main {
   max-width: 55px;
 }
 
+@media screen and (max-width: 767px) {
+  .about {
+    padding: 0;
+    margin-top: 24px;
+  }
+}
 .footer {
   font-size: 1rem;
   background-image: url(../img/footer-bg.png);
@@ -246,98 +313,6 @@ main {
   bottom: 0;
 }
 
-.delivery-info h1 {
-  color: #0056b3;
-}
-.delivery-info-card img {
-  width: 80px;
-  height: 80px;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-.delivery-info-card h2 a {
-  text-decoration: none;
-  color: #0056b3;
-}
-
-.container-cards {
-  margin-top: 10px;
-}
-.container-cards .card-container {
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-.container-cards .card-container-item {
-  height: 0;
-  padding: 28.125% 0;
-}
-.container-cards .card-container-item .card-img-top {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-bottom: 8px;
-}
-
-input,
-textarea {
-  padding: 10px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #0056b3;
-}
-
-.c-item {
-  align-self: center;
-  padding: 20% 0;
-}
-
-.slider-text {
-  color: black;
-}
-
-.text-delivery {
-  font-size: 20px;
-  color: #292929;
-}
-
-.gap-20 {
-  gap: 20px;
-}
-
-.gap-24 {
-  gap: 24px;
-}
-
-.py-120 {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
-@media screen and (max-width: 767px) {
-  .about {
-    padding: 0;
-    margin-top: 24px;
-  }
-}
 @media screen and (max-width: 530px) {
   .footer-content-item {
     width: 100%;

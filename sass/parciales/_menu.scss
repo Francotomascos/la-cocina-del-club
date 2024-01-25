@@ -1,0 +1,18 @@
+.container-cards {
+    margin-top: 10px;
+
+    .card-container {
+        display: flex;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    
+        &-item {
+            height: 0;
+            padding: 28.125% 0;
+
+            .card-img-top {
+                object-fit: cover ;
+            }
+        }
+    }
+}
