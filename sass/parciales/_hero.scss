@@ -6,25 +6,12 @@
         padding-right: 10px;
 
         span {
-            color: #B59553;
+            color: $primary-color;
         }
 
         &-title {
             margin: 24px 0;
-            color: #292929;
-        }
-        button {
-            background-color: #B59553;
-            border: none;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 4px;
-            transition: .3s;
-            margin-top: 40px;
-
-            &:hover {
-                background-color: #292929;
-            }
+            color: $text-color;
         }
     }
 

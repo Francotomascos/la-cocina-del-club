@@ -1,6 +1,6 @@
 .delivery-info {
     h1 {
-        color: #0056b3;
+        color: $primary-color;
     }
 
     &-card {
@@ -11,12 +11,12 @@
         }
         h2 a {
             text-decoration: none;
-            color: #0056b3;
+            color: $primary-color;
         }
     }
 }
 
 .text-delivery{
     font-size: 20px;
-    color: #292929;
+    color: $text-color;
 }

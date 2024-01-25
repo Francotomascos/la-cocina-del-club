@@ -41,7 +41,7 @@
                 transition: .3s;
                 
                 &:hover {
-                    color: #B59553;
+                    color: $primary-color;
                 }
             }
             i {
@@ -61,7 +61,7 @@
             margin: 5px;
 
             a:hover {
-                color: #B59553;
+                color: $primary-color;
             }
         }
     }
@@ -92,12 +92,12 @@
             margin: 20px 0px;
 
             button {
-                background-color: #B59553;
+                background-color: $primary-color;
                 color: #FFF;
                 transition: .3s;
                 cursor: pointer;
                 &:hover {
-                    background-color: #292929;
+                    background-color: $text-color;
                 }
             }
         }
@@ -111,7 +111,7 @@
                 transition: .3s;
                 
                 &:hover {
-                    color: #B59553;
+                    color: $primary-color;
                 }
                 i {
                     font-size: 24px;

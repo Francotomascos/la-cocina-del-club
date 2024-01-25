@@ -10,21 +10,11 @@ body {
   color: #292929;
 }
 
-.container {
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
 main {
   background-image: url(../img/banner.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   padding: 40px 0;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
 }
 
 label {
@@ -39,16 +29,14 @@ textarea {
   border-radius: 4px;
 }
 
-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.container {
+  margin: 0 auto;
+  padding: 0 24px;
 }
-button:hover {
-  background-color: #0056b3;
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
 }
 
 .c-item {
@@ -67,6 +55,19 @@ button:hover {
 .py-120 {
   padding-top: 120px;
   padding-bottom: 120px;
+}
+
+.default-button {
+  background-color: #B59553;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 4px;
+  transition: 0.3s;
+  margin-top: 40px;
+}
+.default-button:hover {
+  background-color: #292929;
 }
 
 .container-cards {
@@ -100,18 +101,6 @@ button:hover {
   margin: 24px 0;
   color: #292929;
 }
-.hero-details button {
-  background-color: #B59553;
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 4px;
-  transition: 0.3s;
-  margin-top: 40px;
-}
-.hero-details button:hover {
-  background-color: #292929;
-}
 .hero-image {
   padding-left: 10px;
 }
@@ -123,8 +112,32 @@ button:hover {
   width: 50%;
 }
 
+.carousel-info {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.carousel-bg-blur {
+  padding: 8px;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  background-color: rgba(80, 80, 80, 0.0588235294);
+  border-radius: 8px;
+}
+
+.slider-text {
+  color: black;
+}
+
 .delivery-info h1 {
-  color: #0056b3;
+  color: #B59553;
 }
 .delivery-info-card img {
   width: 80px;
@@ -134,7 +147,7 @@ button:hover {
 }
 .delivery-info-card h2 a {
   text-decoration: none;
-  color: #0056b3;
+  color: #B59553;
 }
 
 .text-delivery {
@@ -151,7 +164,7 @@ button:hover {
 }
 .about-title-sm {
   font-size: 20px;
-  color: #0056b3;
+  color: #B59553;
   font-weight: 500;
   display: inline-block;
 }
@@ -162,7 +175,7 @@ button:hover {
   line-height: 1.3;
 }
 .about-btn {
-  background-color: #0056b3;
+  background-color: #B59553;
   color: #FFF;
 }
 .about-btn:hover {
