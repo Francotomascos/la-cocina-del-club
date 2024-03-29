@@ -1,86 +1,109 @@
-let userName;
-let selectedFoods = [];
-let typeFood;
-let foodQuantity;
-let addMore;
+const itemsContainer = document.getElementById('items-container');
+const cartItems = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+const checkoutButton = document.getElementById('checkout-button');
+const lastOrderTotal = document.getElementById('last-order-total');
 let total = 0;
-const menu = ["hamburguesas", "pizzas", "ensaladas"];
-const validateUserName = (name) => /^[a-zA-Z]+$/.test(name.trim()) && name.length >= 3;
-const validateFoodQuantity = (quantity) => {
-    if (!isNaN(quantity) && parseInt(quantity) > 0) {
-        return true;
-    } else {
-        alert('Error, ingrese un numero valido');
-        return false;
-    }
-};
+let cart = [];
 
-do {
-    userName = prompt("Bienvenido a La Cocina del Club, ¿Cuál es su nombre?");
-} while (!validateUserName(userName));
+function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCart();
+}
 
-const init = () => {
-    do {
-        typeFood = prompt(`${userName}, ¿Qué va a ordenar?\n\nMenú:\n- Hamburguesas\n- Pizzas\n- Ensaladas`).toLowerCase();
-        if (!menu.includes(typeFood)) {
-            alert("Error, ingrese una opción válida");
-            continue;
-        }
-        do {
-            foodQuantity = prompt(`¿Cuantas ${typeFood} va a ordenar?`);
-        } while (!validateFoodQuantity(foodQuantity));
-        const foodObject = {
-            type: typeFood,
-            quantity: parseInt(foodQuantity)
-        }
-        selectedFoods.push(foodObject);
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
 
-        do {
-            addMore = prompt('¿Desea pedir algo mas?\n\n-Si\n-No').toLowerCase();
-        } while (addMore !== 'si' && addMore !== 'no');
-
-        if (addMore === 'no') break;
-    } while (true);
-
-    let orderList = "Su pedido:\n";
-    selectedFoods.forEach(function (item) {
-        orderList += `- ${item.quantity} ${item.type}\n`;
+function updateCart() {
+    cartItems.innerHTML = '';
+    total = 0;
+    cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - $${item.price}`;
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'x';
+        removeButton.classList.add('remove-button');
+        removeButton.addEventListener('click', () => removeItem(index));
+        li.appendChild(removeButton);
+        cartItems.appendChild(li);
+        total += item.price;
     });
-    alert(orderList);
+    cartTotal.textContent = total;
+    saveCart();
+}
 
-    let removeItem;
-    do {
-        removeItem = prompt("¿Desea eliminar algo de su pedido? (Si/No)").toLowerCase();
-        if (removeItem === 'si') {
-            let itemToRemove;
-            do {
-                itemToRemove = prompt("¿Qué producto desea eliminar?");
-            } while (!selectedFoods.find(item => item.type === itemToRemove.toLowerCase()));
-            selectedFoods = selectedFoods.filter(item => item.type !== itemToRemove.toLowerCase());
-            orderList = "Su pedido actualizado:\n";
-            selectedFoods.forEach(item => {
-                orderList += `- ${item.quantity} ${item.type}\n`;
-            });
-            if (selectedFoods.length > 0) alert(orderList);
-        }
-    } while (removeItem !== 'no' && selectedFoods.length > 0);
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
-    selectedFoods.forEach(item => {
-        if (item.type === 'hamburguesas') {
-            total += 5000 * item.quantity;
-        } else if (item.type === 'pizzas') {
-            total += 3500 * item.quantity;
-        } else if (item.type === 'ensaladas') {
-            total += 2000 * item.quantity;
-        }
-    });
-
-    if (selectedFoods.length > 0) alert(`El costo total de su pedido es: $${total}. \n\n¡Que lo disfrutes ${userName}!`)
-    else {
-        let restart = prompt('Tu orden esta vacia, desea volver a ordenar? (Si/No)').toLowerCase()
-        if (restart === 'si') init()
-        else alert('Hasta pronto!')
+function loadCart() {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCart();
     }
 }
 
-init()
+function checkout() {
+    alert(`Total: $${total}\nGracias por tu compra`);
+    lastOrderTotal.textContent = `Total: $${total}`;
+    total = 0;
+    cart = [];
+    updateCart();
+}
+
+checkoutButton.addEventListener('click', checkout);
+
+const items = [
+    { id: 'pizza', name: 'Pizza', price: 6000, description: 'Irresistible pizza con sabores auténticos y queso fundido, una delicia para el paladar.', image: '../img/menu-images/pizza.jpg' },
+    { id: 'burger', name: 'Burger', price: 7500, description: 'Jugosa hamburguesa gourmet con ingredientes frescos y sabrosa salsa, simplemente deliciosa.', image: '../img/menu-images/burger.png' },
+    { id: 'arrollado', name: 'Arollado', price: 3500, description: 'Exquisito arrollado relleno con finas hierbas y sabrosas especias, una experiencia culinaria única.', image: '../img/menu-images/arrollado.jpg' },
+    { id: 'ensalada', name: 'Ensalada', price: 4000, description: 'Ensalada fresca con ingredientes crujientes y aderezo ligero, un festín saludable y delicioso.', image: '../img/menu-images/ensalada.jpg' },
+    { id: 'salmon', name: 'Salmon', price: 10000, description: 'Salmón a la parrilla con sabor ahumado y textura tierna, una opción elegante y saludable.', image: '../img/menu-images/salmon.jpg' },
+    { id: 'huevos', name: 'Huevos', price: 4000, description: 'Huevos preparados a tu gusto, un desayuno clásico y nutritivo para empezar el día.', image: '../img/menu-images/eggs.png' },
+    { id: 'burga', name: 'Burga', price: 6000, description: 'Jugosa hamburguesa gourmet con ingredientes frescos y sabrosa salsa, simplemente deliciosa.', image: '../img/menu-images/burga.jpg' },
+    { id: 'soup', name: 'Soup', price: 2500, description: 'Sopa reconfortante con sabores auténticos y ingredientes frescos, el placer acogedor en cada cucharada.', image: '../img/menu-images/soup.png' },
+];
+
+function createItemCard(item) {
+    const div = document.createElement('div');
+    div.classList.add('card-container', 'col-lg-3', 'col-sm-4', 'col-6');
+    div.innerHTML = `
+    <div class="card">
+        <div class="position-relative card-container-item">
+            <img class="position-absolute h-100 top-0 start-0 bottom-0 end-0 card-img-top" src="${item.image}" alt="${item.name}" />
+        </div>
+        <div class="card-body d-flex flex-column">
+            <h4 class="card-title cartita__titulo">${item.name}</h4>
+            <p class="card-text cartita__parrafo flex-grow-1">${item.description}</p>
+            <p class="price-tag">$${item.price}</p>
+            <button id="${item.id}" class="card-button default-button">Order Now</button>
+        </div>
+    </div>
+    `;
+    return div;
+}
+
+function loadItems() {
+    items.forEach(item => {
+        const itemCard = createItemCard(item);
+        itemsContainer.appendChild(itemCard);
+    });
+}
+
+loadCart();
+loadItems();
+
+
+const cardButtons = document.querySelectorAll('.card-button')
+cardButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        console.log(event)
+        const itemId = event.target.id;
+        const selectedItem = items.find(item => item.id === itemId);
+        console.log(selectedItem.price);
+        addToCart(selectedItem.name, selectedItem.price);
+    });
+});

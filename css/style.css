@@ -44,6 +44,7 @@ body {
     background-color: rgb(255, 255, 255);
     background-size: cover;
 }
+
 .menu__item.active a, 
 .menu__item a:hover{
     color: #B59553;
@@ -109,6 +110,7 @@ main{
     background-color: #5050500f;
     border-radius: 8px;
 }
+
 /* ABOUT US */
 .about-us-banner {
     max-width: 100%;
