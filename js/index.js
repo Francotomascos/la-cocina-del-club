@@ -28,9 +28,10 @@ function updateCart() {
         const li = document.createElement('li');
         li.textContent = `${item.name} x ${item.quantity} - $${item.price * item.quantity}`;
         const removeButton = document.createElement('button');
-        removeButton.textContent = 'x';
+        removeButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
         removeButton.classList.add('remove-button');
         removeButton.addEventListener('click', () => removeItem(index));
+        li.appendChild(document.createTextNode(' '));
         li.appendChild(removeButton);
         cartItems.appendChild(li);
         total += item.price * item.quantity;
