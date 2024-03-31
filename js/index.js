@@ -7,7 +7,12 @@ let total = 0;
 let cart = [];
 
 function addToCart(name, price) {
-    cart.push({ name, price });
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
     updateCart();
 }
 
@@ -21,14 +26,14 @@ function updateCart() {
     total = 0;
     cart.forEach((item, index) => {
         const li = document.createElement('li');
-        li.textContent = `${item.name} - $${item.price}`;
+        li.textContent = `${item.name} x ${item.quantity} - $${item.price * item.quantity}`;
         const removeButton = document.createElement('button');
         removeButton.textContent = 'x';
         removeButton.classList.add('remove-button');
         removeButton.addEventListener('click', () => removeItem(index));
         li.appendChild(removeButton);
         cartItems.appendChild(li);
-        total += item.price;
+        total += item.price * item.quantity;
     });
     cartTotal.textContent = total;
     saveCart();
@@ -96,14 +101,12 @@ function loadItems() {
 loadCart();
 loadItems();
 
-
 const cardButtons = document.querySelectorAll('.card-button')
 cardButtons.forEach(button => {
     button.addEventListener('click', (event) => {
         console.log(event)
         const itemId = event.target.id;
         const selectedItem = items.find(item => item.id === itemId);
-        console.log(selectedItem.price);
         addToCart(selectedItem.name, selectedItem.price);
     });
 });
